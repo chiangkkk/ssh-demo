@@ -4,13 +4,33 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 
+    <!--    后缀-->
+    <!--    <constant name="struts.action.extension" value="do,html,action"></constant>-->
+    <!--    国际化-->
+    <!--    <constant name="struts.i18n。encoding" value="utf-8"></constant>-->
+    <!--    运行调用动态方法-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
     <!-- 默认访问页面 -->
-    <package name="hello" extends="struts-default">
-        <!--        uri /hello example1 hello word-->
-        <action name="hello" class="org.chiangkai.action.HelloAction">
+    <package name="hello" extends="struts-default" namespace="/hello">
+
+
+        <!--        默认action-->
+        <default-action-ref name="hello"/>
+        <!--        execute,input,back,cancel,browse,save,delete,list,index 在 struts-default-->
+        <global-allowed-methods>login,register</global-allowed-methods>
+
+        <!--        uri /hello/hello example1 hello word-->
+        <!--        name 属性 请求路径-->
+        <!--        class 指定类-->
+        <!--        method 指定方法-->
+
+        <action name="*Hello" class="org.chiangkai.action.HelloAction" method="{1}">
+
+            <!--            响应结果和页面关联 根据return 的字符串 做页面映射-->
             <result name="success">/view/hello.jsp</result>
         </action>
-        <!--        uri /form example2 form 传参-->
+        <!--        uri /hello/form example2 form 传参-->
         <action name="form" class="org.chiangkai.action.FormAction">
             <result name="success">/view/form.jsp</result>
         </action>
