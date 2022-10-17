@@ -12,9 +12,15 @@
 </head>
 <body>
 <form action="" method="post">
-    name: <input type="text" name="password">
+    name: <input type="text" name="name" value="${requestScope.name}">
     <br>
-    password: <input type="password" name="password">
+    password: <input type="password" name="password" value="${requestScope.password}">
+    <br>
+    age:
+    <input type="number" name="model.age">
+    <br>
+    sex: <input type="text" name="model.sex">
+    <br>
     <input type="submit">
 </form>
 </body>
