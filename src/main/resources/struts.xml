@@ -27,8 +27,12 @@
 
         <action name="*Hello" class="org.chiangkai.action.HelloAction" method="{1}">
 
-            <!--            响应结果和页面关联 根据return 的字符串 做页面映射-->
-            <result name="success">/view/hello.jsp</result>
+            <!--         name 属性   响应结果和页面关联 根据return 的字符串 做页面映射-->
+            <!--            type 属性 1. dispatcher 关联页面 默认-->
+            <!--                     2. redirect 转发页面-->
+            <!--                     3. redirectAction 转发Action-->
+            <!--                     4. chain 可以共享参数 转发不写后缀-->
+            <result name="success" type="dispatcher">/view/hello.jsp</result>
         </action>
         <!--        uri /hello/form example2 form 传参-->
         <action name="form" class="org.chiangkai.action.FormAction">
